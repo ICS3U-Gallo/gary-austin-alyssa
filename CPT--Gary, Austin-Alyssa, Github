@@ -1,0 +1,57 @@
+def main():
+    game_state = [
+        "treasure room",  # location
+        [],  # player inventory
+    ]
+    while True:
+        print("main switchboard")
+        # direct to certain locations.
+        location = game_state[0]
+        if location == "treasure room":
+            treasure_room(game_state)
+            break
+        elif location == "room_1":
+            room_1()
+        elif location == "room_2":
+            room_2()
+            break
+
+
+
+def treasure_room(game_state):
+    print("Hi bro, you are in treasure room right now. You have to go to room_1 and room_2 to find the key to open the treasure.")
+    while True:
+        print("[a] go to room_1")
+        print("[b] go to room_2")
+    
+        choice = input("Choice: ")
+        if choice == "a":
+            inventory = game_state[1]
+            if "room_1_key" in inventory:
+                game_state[0] = "room_1"
+            else:
+                print("Unfortunately, room_1 is locked, please find room_1's key first.")
+            
+        elif choice == "b":
+            print("congratulations, you got the key to room_1! Press 'A' to enter room_1:)")
+            game_state[0] = "room_2"
+        elif choice == "A":
+            print("Congratulations, welcome to room_1. ")  
+        
+        else:
+            print("Invalid choice...please try again")
+            
+
+
+
+def room_1():
+    print("Entered room 1")
+    
+
+
+def room_2():
+    print("Entered room 2")
+
+
+if __name__ == "__main__":
+    main()
